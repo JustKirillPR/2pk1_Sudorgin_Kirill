@@ -7,7 +7,7 @@
             bool trySnova = true; //задаю значение true, чтобы while начал выполняться 
             while (trySnova) //создацию цикл, чтобы, когда  catch поймал ошибку, можно было вернуться вначало не перезапуская код.
             {
-                try
+                try //ловятся ошибки
                 {
                     Console.ResetColor(); //консоль возвращается к изначальному цвету.
                     Console.WriteLine("Введите число a");
@@ -32,7 +32,7 @@
                     }
                     Console.WriteLine("Введите число c");
                     double c = double.Parse(Console.ReadLine().Replace('.', ','));
-                    Console.WriteLine("Введите точность результата");
+                    Console.WriteLine("Введите точность результата"); //задаёт точность округления по правилам, цифра до которой производится округление
                     int roundv = Convert.ToInt32(Console.ReadLine());
                     if (roundv < 0)
                     {
@@ -41,7 +41,7 @@
                     }
 
                     double FirstAction = (3 * Math.Log(8, a)) / (Math.Round(Math.Sin(b / (3 * a)), 2)); //выводится при значении 3.14 правильное решение
-                    double SecondAction = Math.Pow((5 * a * a) + 7, 1.0 / 3); //написал нолики, указав то, что это число с точкой, ибо 1 / 3 - это целочисленное деление.
+                    double SecondAction = Math.Pow((5 * a * a) + 7, 1 / 3.0); //написал нолик, указав то, что это число с точкой, ибо 1 / 3 - это целочисленное деление.
                     double ThirdAction = (4 * Math.Abs(c - 2 * a + 1)) / Math.Sqrt(8 * a);
                     double ChetireNd = FirstAction - SecondAction + ThirdAction; //окончательные действия 
                     Console.WriteLine("Полученный результат" + "=" + Math.Round(ChetireNd, roundv));
@@ -49,7 +49,7 @@
 
                 }
 
-                catch (System.FormatException)
+                catch (System.FormatException) //поймал ошибку
                 {
                     Console.BackgroundColor = ConsoleColor.Red; //фон строки принимает красный цвет, говоря об ошибке.
                     Console.ForegroundColor = ConsoleColor.Black; //текст строки принимает черный цвет, говоря об ошибке.
